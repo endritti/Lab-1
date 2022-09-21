@@ -30,3 +30,34 @@ C:\Users\Pc\Desktop\eTickets\eTickets\bin\Debug\netcoreapp3.1\runtimes\win-x64\n
 C:\Users\Pc\Desktop\eTickets\eTickets\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\Pc\Desktop\eTickets\eTickets\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Pc\Desktop\eTickets\eTickets\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.pdb
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\eTickets.exe
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\eTickets.deps.json
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\eTickets.runtimeconfig.json
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\eTickets.runtimeconfig.dev.json
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\eTickets.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\eTickets.pdb
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.csproj.AssemblyReference.cache
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.AssemblyInfoInputs.cache
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.AssemblyInfo.cs
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.csproj.CoreCompileInputs.cache
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\staticwebassets\eTickets.StaticWebAssets.Manifest.cache
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\staticwebassets\eTickets.StaticWebAssets.xml
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\scopedcss\bundle\eTickets.styles.css
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.RazorTargetAssemblyInfo.cache
+C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.genruntimeconfig.cache
