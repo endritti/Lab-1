@@ -7,7 +7,7 @@ namespace eTickets.Models
 {
     public class Series
     {
-        public int seriesId { get; set; }
+        public int serieId { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string cinema { get; set; }

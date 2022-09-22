@@ -1,3 +1,5 @@
+
+
 create table cinema(
 	cinemaId int primary key identity(1,1),
 	cinemaName varchar(500),
@@ -31,6 +33,7 @@ create table series(
 	producer varchar (500),
 	status varchar(500)
 )
+
 create table actor(
 	actorId int primary key identity(1,1),
 	actorName varchar(500),

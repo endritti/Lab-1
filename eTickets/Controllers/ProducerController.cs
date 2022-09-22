@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace eTickets.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("admin/[controller]")]
     [ApiController]
     public class ProducerController : ControllerBase
     {
@@ -46,7 +46,7 @@ namespace eTickets.Controllers
         public JsonResult Post(Producer pr)
         {
             string query = @"insert into dbo.producer values
-                            ('" + pr.producerId + @"',
+                            (
                             '" + pr.producerName + @"',
                             '" + pr.producerAge + @"',
                             '" + pr.moviesMade + @"',
@@ -74,11 +74,11 @@ namespace eTickets.Controllers
         public JsonResult Put(Producer pr)
         {
             string query = @"update dbo.producer set 
-                            producerId = '" + pr.producerId + @"',
+                            
                             producerName = '" + pr.producerName + @"',
                             producerAge = '" + pr.producerAge + @"',
                             moviesMade = '" + pr.moviesMade + @"',
-                            producerAdress= '" + pr.producerAdress + @"',
+                            producerAdress= '" + pr.producerAdress + @"'
 
                             where producerId = " + pr.producerId + @"
                             ";

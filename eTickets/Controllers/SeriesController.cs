@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace eTickets.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("admin/[controller]")]
     [ApiController]
     public class SeriesController : ControllerBase
     {
@@ -25,7 +25,7 @@ namespace eTickets.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select seriesId,name,description,cinema,genre,mainActor,producer,status from dbo.series";
+            string query = @"select serieId,name,description,cinema,genre,mainActor,producer,status from dbo.series";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
@@ -46,7 +46,8 @@ namespace eTickets.Controllers
         public JsonResult Post(Series sr)
         {
             string query = @"insert into dbo.series values
-                            ('" + sr.name + @"',
+                            (
+                            '" + sr.name + @"',
                             '" + sr.description + @"',
                             '" + sr.cinema + @"',
                             '" + sr.genre + @"',
@@ -75,7 +76,7 @@ namespace eTickets.Controllers
         [HttpPut]
         public JsonResult Put(Series sr)
         {
-            string query = @"update dbo.series set 
+            string query = @"update dbo.series set                           
                             name = '" + sr.name + @"',
                             description = '" + sr.description + @"',
                             cinema = '" + sr.cinema + @"',
@@ -84,7 +85,7 @@ namespace eTickets.Controllers
                             producer = '" + sr.producer + @"',
                             status = '" + sr.status + @"'
 
-                            where seriesId = " + sr.seriesId + @"
+                            where serieId = " + sr.serieId + @"
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
@@ -107,7 +108,7 @@ namespace eTickets.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"delete from dbo.series 
-                            where seriesId = " + id + @"
+                            where serieId = " + id + @"
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");

@@ -8,7 +8,7 @@ namespace eTickets.Models
     public class Cinema
     {
         public int cinemaId { get; set; }
-        public string name { get; set; }
+        public string cinemaName { get; set; }
         public string cinemaCapacity { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace eTickets.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("admin/[controller]")]
     [ApiController]
     public class GenreController : ControllerBase
     {
@@ -25,7 +25,7 @@ namespace eTickets.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select genreId,name,genreDescription from dbo.genre";
+            string query = @"select genreId,genreName,genreDescription from dbo.genre";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
@@ -46,8 +46,8 @@ namespace eTickets.Controllers
         public JsonResult Post(Genre gr)
         {
             string query = @"insert into dbo.genre values
-                            ('" + gr.genreId + @"',
-                            '" + gr.name + @"',
+                            (
+                            '" + gr.genreName + @"',
                             '" + gr.genreDescription + @"')
 
                             ";
@@ -71,10 +71,9 @@ namespace eTickets.Controllers
         [HttpPut]
         public JsonResult Put(Genre gr)
         {
-            string query = @"update dbo.genre set 
-                            genreId = '" + gr.genreId + @"',
-                            name = '" + gr.name + @"',
-                            genreDescription= '" + gr.genreDescription + @"',
+            string query = @"update dbo.genre set                            
+                            genreName = '" + gr.genreName + @"',
+                            genreDescription= '" + gr.genreDescription + @"'
 
                             where genreId = " + gr.genreId + @"
                             ";

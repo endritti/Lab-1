@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace eTickets.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("admin/[controller]")]
     [ApiController]
     public class CinemaController : ControllerBase
     {
@@ -25,7 +25,7 @@ namespace eTickets.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select cinemaId,name,cinemaCapacity from dbo.cinema";
+            string query = @"select cinemaId,cinemaName,cinemaCapacity from dbo.cinema";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
@@ -45,10 +45,10 @@ namespace eTickets.Controllers
         [HttpPost]
         public JsonResult Post(Cinema cm)
         {
-            string query = @"insert into dbo.movies values
-                            ('" + cm.cinemaId + @"',
-                            '" + cm.name + @"',
-                            '" + cm.cinemaCapacity + @"',)
+            string query = @"insert into dbo.cinema values
+                            (
+                            '" + cm.cinemaName + @"',
+                            '" + cm.cinemaCapacity + @"')
 
                             ";
             DataTable table = new DataTable();
@@ -72,9 +72,9 @@ namespace eTickets.Controllers
         public JsonResult Put(Cinema cm)
         {
             string query = @"update dbo.cinema set 
-                            cinemaId = '" + cm.cinemaId + @"',
-                            name = '" + cm.name + @"',
-                            cinemaCapacity = '" + cm.cinemaCapacity + @"',
+                            
+                            cinemaName = '" + cm.cinemaName + @"',
+                            cinemaCapacity = '" + cm.cinemaCapacity + @"'
 
                             where cinemaId = " + cm.cinemaId + @"
                             ";
