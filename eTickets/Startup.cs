@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
+using System.IO;
+
 
 namespace eTickets
 {
@@ -61,6 +63,11 @@ namespace eTickets
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+            app.UseStaticFiles(new StaticFileOptions{
+
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),"Photos")),
+                RequestPath="/Photos"
             });
         }
     }

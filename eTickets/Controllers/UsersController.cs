@@ -8,27 +8,24 @@ using System.Data.SqlClient;
 using System.Data;
 using eTickets.Models;
 using Microsoft.Extensions.Configuration;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
 
 namespace eTickets.Controllers
 {
     [Route("admin/[controller]")]
     [ApiController]
-    public class MoviesController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _env;
-        public MoviesController(IConfiguration configuration,IWebHostEnvironment env)
+
+        public UsersController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _env = env;
         }
         [HttpGet]
 
         public JsonResult Get()
         {
-            string query = @"select moviesId,name,description,cinema,genre,mainActor,producer,status from dbo.movies";
+            string query = @"select userId,userName,userPassword,userEmail,userPhoneNumber from dbo.useri";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
@@ -46,17 +43,13 @@ namespace eTickets.Controllers
             return new JsonResult(table);
         }
         [HttpPost]
-        public JsonResult Post(Movies mv)
+        public JsonResult Post(Users us)
         {
-            string query = @"insert into dbo.movies values
-                            ('" + mv.name + @"',
-                            '" + mv.description + @"',
-                            '" + mv.cinema + @"',
-                            '" + mv.genre + @"',
-                            '" + mv.mainActor + @"',
-                            '" + mv.producer + @"',
-                            '" + mv.status + @"')
-
+            string query = @"insert into dbo.useri values
+                            ('" + us.userName + @"',
+                            '" + us.userPassword + @"',
+                            '" + us.userEmail + @"',
+                            '" + us.userPhoneNumber + @"')
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
@@ -76,18 +69,15 @@ namespace eTickets.Controllers
         }
 
         [HttpPut]
-        public JsonResult Put(Movies mv)
+        public JsonResult Put(Users us)
         {
-            string query = @"update dbo.movies set 
-                            name = '" + mv.name + @"',
-                            description = '" + mv.description + @"',
-                            cinema = '" + mv.cinema + @"',
-                            genre = '" + mv.genre + @"',
-                            mainActor = '" + mv.mainActor + @"',
-                            producer = '" + mv.producer + @"',
-                            status = '" + mv.status + @"'
+            string query = @"update dbo.useri set 
+                            userName = '" + us.userName + @"',
+                            userPassword = '" + us.userPassword + @"',
+                            userEmail = '" + us.userEmail + @"',
+                            userPhoneNumber = '" + us.userPhoneNumber + @"'                         
 
-                            where moviesId = " + mv.moviesId + @"
+                            where userId = " + us.userId + @"
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
@@ -109,8 +99,8 @@ namespace eTickets.Controllers
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
         {
-            string query = @"delete from dbo.movies 
-                            where moviesId = " + id + @"
+            string query = @"delete from dbo.useri 
+                            where userId = " + id + @"
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
@@ -128,28 +118,6 @@ namespace eTickets.Controllers
             }
             return new JsonResult("Deleted Successfully");
         }
-        [Route("SaveFile")]
-        [HttpPost]
-        public JsonResult SaveFile()
-        {
-            try
-            {
-                var httpRequest = Request.Form;
-                var postedFile = httpRequest.Files[0];
-                string filename = postedFile.FileName;
-                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
-
-                using(var stream = new FileStream(physicalPath, FileMode.Create))
-                {
-                    postedFile.CopyTo(stream);
-                }
-
-                return new JsonResult(filename);
-            }
-            catch (Exception)
-            {
-                return new JsonResult("Default File Name, Exception Thrown");
-            }
-        }
     }
 }
+    
