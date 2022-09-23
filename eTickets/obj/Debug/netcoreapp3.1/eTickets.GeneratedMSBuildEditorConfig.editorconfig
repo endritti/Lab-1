@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = eTickets
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Ari's Laptop\Desktop\Lab-1\Lab-1\eTickets\
+=======
+build_property.ProjectDir = c:\Users\Pc\Desktop\eTickets\eTickets\
+>>>>>>> b92a11d421ae2bc616446d287a31988785c96ad5

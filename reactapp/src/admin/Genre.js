@@ -30,6 +30,7 @@ export class Genre extends Component {
   render() {
     const { genr } = this.state;
 
+<<<<<<< HEAD
     return (
       <div>
         <Table className="mt-4" striped bordered hover size="sm">
@@ -56,3 +57,38 @@ export class Genre extends Component {
     );
   }
 }
+=======
+    
+    render(){
+        const {genr}=this.state;
+        
+        return(
+            <div >
+                <Table className="mt-4  " striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>Genre ID</th>
+                            <th>Genre Name</th>
+                            <th>Genre Description</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {genr.map(gen=>
+                            <tr key={gen.genreId}>
+                                <td>{gen.genreId}</td>
+                                <td>{gen.genreName}</td>
+                                <td>{gen.genreDescription}</td>
+                                <td>Edit/Delete</td>
+
+                            </tr>)}
+                    </tbody>
+
+                </Table>
+
+                
+            </div>
+        )
+    }
+}
+>>>>>>> b92a11d421ae2bc616446d287a31988785c96ad5
