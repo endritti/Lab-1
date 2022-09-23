@@ -14,12 +14,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-<<<<<<< HEAD
-      <div className="container">
         <Navigation />
-=======
     <div className="container-fluid">
->>>>>>> b92a11d421ae2bc616446d287a31988785c96ad5
 
         <Switch>
           <Route path="/admin/movies" component={Movies} exact />
