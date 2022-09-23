@@ -5,14 +5,14 @@ import { Button, ButtonToolbar } from "react-bootstrap";
 /*import {AddDepModal} from './AddDepModal';
 import {EditDepModal} from './EditDepModal';*/
 
-export class Genre extends Component {
+export class Actors extends Component {
   constructor(props) {
     super(props);
     this.state = { genr: [] };
   }
 
   refreshList() {
-    fetch(process.env.REACT_APP_API + "Genre")
+    fetch(process.env.REACT_APP_API + "Actors")
       .then((response) => response.json())
       .then((data) => {
         this.setState({ genr: data });
@@ -35,18 +35,21 @@ export class Genre extends Component {
         <Table className="mt-4" striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Genre ID</th>
-              <th>Genre Name</th>
-              <th>Genre Description</th>
-              <th>Options</th>
+              <th>Actor ID</th>
+              <th>Actor Name</th>
+              <th>Actor Age</th>
+              <th>Movies Played</th>
+              <th>Actors Adress</th>
             </tr>
           </thead>
           <tbody>
             {genr.map((gen) => (
-              <tr key={gen.genreId}>
-                <td>{gen.genreId}</td>
-                <td>{gen.genreName}</td>
-                <td>{gen.genreDescpriton}</td>
+              <tr key={gen.actorId}>
+                <td>{gen.actorId}</td>
+                <td>{gen.actorName}</td>
+                <td>{gen.actorAge}</td>
+                <td>{gen.moviesPlayed}</td>
+                <td>{gen.actorAdress}</td>
                 <td>Edit/Delete</td>
               </tr>
             ))}
