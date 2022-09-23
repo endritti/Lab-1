@@ -6,11 +6,11 @@ export class Navigation extends Component{
 
     render(){
         return(
-            <Navbar bg="primary" variant="dark" expand="lg">
+            <Navbar bg="success" variant="dark" expand="lg">
                 <Container>    
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav className=" justify-content-end" >
                             <Nav.Link href="/admin/movies">Movies</Nav.Link>
                             <Nav.Link href="/admin/series">Series</Nav.Link>
                             <Nav.Link href="/admin/genre">Genre</Nav.Link>

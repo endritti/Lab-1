@@ -34,7 +34,7 @@ export class Genre extends Component{
         
         return(
             <div >
-                <Table className="mt-4" striped bordered hover size="sm">
+                <Table className="mt-4  " striped bordered hover size="sm">
                     <thead>
                         <tr>
                             <th>Genre ID</th>
@@ -48,7 +48,7 @@ export class Genre extends Component{
                             <tr key={gen.genreId}>
                                 <td>{gen.genreId}</td>
                                 <td>{gen.genreName}</td>
-                                <td>{gen.genreDescpriton}</td>
+                                <td>{gen.genreDescription}</td>
                                 <td>Edit/Delete</td>
 
                             </tr>)}
