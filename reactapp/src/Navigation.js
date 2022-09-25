@@ -15,6 +15,7 @@ export class Navigation extends Component {
               <Nav.Link href="/admin/genre">Genre</Nav.Link>
               <Nav.Link href="/admin/actors">Actors</Nav.Link>
               <Nav.Link href="/admin/producer">Producer</Nav.Link>
+              <Nav.Link href="/admin/cinema">Cinema</Nav.Link>
             </Nav>
             <Nav.Link href="/admin/useri">Users</Nav.Link>
           </Navbar.Collapse>

@@ -2,14 +2,14 @@ import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
-/*import {AddDepModal} from './AddDepModal';
-import {EditDepModal} from './EditDepModal';*/
+import {AddMovModal} from './AddMovModal';
+import {EditMovModal} from './EditMovModal';
 
 export class Movies extends Component{
 
     constructor(props){
         super(props);
-        this.state={movi:[]}
+        this.state={movi:[], addModalShow:false, editModalShow:false}
     }
 
     refreshList(){
@@ -28,15 +28,24 @@ export class Movies extends Component{
         this.refreshList();
     }
 
-    
+    deleteMov(movid){
+        if(window.confirm('Are you sure?')){
+            fetch(process.env.REACT_APP_API+'Movies/'+movid,{
+                method:'DELETE',
+                header:{'Accept':'application/json',
+            'Content-Type':'application/json'}
+            })
+        }
+    }
     render(){
-        const {movi}=this.state;
-        
+        const {movi, movid,movname,movdesc,movcinema,movgenre,movactor,movproducer,movstatus,photofilename}=this.state;
+        let addModalClose=()=>this.setState({addModalShow:false});
+        let editModalClose=()=>this.setState({editModalShow:false});
         return(
             <div >
-                <Table className="mt-4 " striped bordered hover size="sm">
+                <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
-                        <tr class="align-text-top">
+                    <tr class="align-text-top">
                             <th>Movie ID</th>
                             <th>Movie Name</th>
                             <th>Movie Description</th>
@@ -59,14 +68,34 @@ export class Movies extends Component{
                                 <td>{mov.mainActor}</td>
                                 <td>{mov.producer}</td>
                                 <td>{mov.status}</td>
-                                <td>Edit/Delete</td>
+                                <td>
+                                    <ButtonToolbar>
+                                        <Button className="mr-2" variant="info" onClick={()=>this.setState({editModalShow:true,
+                                            movid:mov.movieId,movname:mov.name,movdesc:mov.description,movcinema:mov.cinema,movgenre:mov.genre,movactor:mov.mainActor,movproducer:mov.producer,
+                                            movstatus:mov.status,photofilename:mov.photoFileName})}>
+                                             Edit
+                                        </Button>
 
+                                        <Button className="mr-2" variant="danger" onClick={()=>this.deleteMov(mov.moviesId)}>
+                                            Delete
+                                        </Button>
+
+                                        <EditMovModal show={this.state.editModalShow} onHide={editModalClose}
+                                         movid={movid} movname={movname} movdesc={movdesc} movcinema={movcinema} movgenre={movgenre}
+                                         movactor={movactor} movproducer={movproducer} movstatus={movstatus} photofilename={photofilename} />
+                                    </ButtonToolbar>
+                                </td>
                             </tr>)}
                     </tbody>
-
                 </Table>
+                <ButtonToolbar>
+                    <Button variant='primary'
+                    onClick={()=>this.setState({addModalShow:true})}>
+                    Add Movie</Button>
 
-                
+                    <AddMovModal show={this.state.addModalShow}
+                    onHide={addModalClose}/>
+                </ButtonToolbar>
             </div>
         )
     }

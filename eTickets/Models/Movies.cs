@@ -16,5 +16,6 @@ namespace eTickets.Models
         
         public string producer { get; set; }
         public string status { get; set; }
+        public string photoFileName { get; set; }
     }
 }

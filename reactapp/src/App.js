@@ -7,6 +7,7 @@ import { Series } from "./admin/Series";
 import { Actors } from "./admin/Actors";
 import { Producer } from "./admin/Producer";
 import { Users } from "./admin/Users";
+import {Cinema} from"./admin/Cinema";
 import { Navigation } from "./Navigation";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/admin/genre" component={Genre} />
           <Route path="/admin/actors" component={Actors} />
           <Route path="/admin/producer" component={Producer} />
+          <Route path="/admin/cinema" component={Cinema} />
           <Route path="/admin/useri" component={Users} />
         </Switch>
       </div>

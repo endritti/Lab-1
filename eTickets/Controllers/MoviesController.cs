@@ -28,7 +28,7 @@ namespace eTickets.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select moviesId,name,description,cinema,genre,mainActor,producer,status from dbo.movies";
+            string query = @"select moviesId,name,description,cinema,genre,mainActor,producer,status,photoFileName from dbo.movies";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
@@ -55,9 +55,11 @@ namespace eTickets.Controllers
                             '" + mv.genre + @"',
                             '" + mv.mainActor + @"',
                             '" + mv.producer + @"',
-                            '" + mv.status + @"')
+                            '" + mv.status + @"'),
+                            '" + mv.photoFileName + @"')
 
                             ";
+            Console.WriteLine(mv.photoFileName);
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;

@@ -8,14 +8,14 @@ import {EditDepModal} from './EditDepModal';*/
 export class Actors extends Component {
   constructor(props) {
     super(props);
-    this.state = { genr: [] };
+    this.state = { acto: [] };
   }
 
   refreshList() {
     fetch(process.env.REACT_APP_API + "Actors")
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ genr: data });
+        this.setState({ acto: data });
       });
   }
 
@@ -28,7 +28,7 @@ export class Actors extends Component {
   }
 
   render() {
-    const { genr } = this.state;
+    const { acto } = this.state;
 
     return (
       <div>
@@ -43,13 +43,13 @@ export class Actors extends Component {
             </tr>
           </thead>
           <tbody>
-            {genr.map((gen) => (
-              <tr key={gen.actorId}>
-                <td>{gen.actorId}</td>
-                <td>{gen.actorName}</td>
-                <td>{gen.actorAge}</td>
-                <td>{gen.moviesPlayed}</td>
-                <td>{gen.actorAdress}</td>
+            {acto.map((act) => (
+              <tr key={act.actorId}>
+                <td>{act.actorId}</td>
+                <td>{act.actorName}</td>
+                <td>{act.actorAge}</td>
+                <td>{act.moviesPlayed}</td>
+                <td>{act.actorAdress}</td>
                 <td>Edit/Delete</td>
               </tr>
             ))}

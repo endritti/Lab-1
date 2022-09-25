@@ -8,14 +8,14 @@ import {EditDepModal} from './EditDepModal';*/
 export class Users extends Component {
   constructor(props) {
     super(props);
-    this.state = { genr: [] };
+    this.state = { user: [] };
   }
 
   refreshList() {
     fetch(process.env.REACT_APP_API + "Users")
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ genr: data });
+        this.setState({ user: data });
       });
   }
 
@@ -28,7 +28,7 @@ export class Users extends Component {
   }
 
   render() {
-    const { genr } = this.state;
+    const { user } = this.state;
 
     return (
       <div>
@@ -44,13 +44,13 @@ export class Users extends Component {
             </tr>
           </thead>
           <tbody>
-            {genr.map((gen) => (
-              <tr key={gen.userId}>
-                <td>{gen.userId}</td>
-                <td>{gen.userName}</td>
-                <td>{gen.userEmail}</td>
-                <td>{gen.userPassword}</td>
-                <td>{gen.userPhoneNumber}</td>
+            {user.map((use) => (
+              <tr key={use.userId}>
+                <td>{use.userId}</td>
+                <td>{use.userName}</td>
+                <td>{use.userEmail}</td>
+                <td>{use.userPassword}</td>
+                <td>{use.userPhoneNumber}</td>
                 <td>Edit/Delete</td>
               </tr>
             ))}
