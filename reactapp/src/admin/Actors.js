@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-/*import {AddDepModal} from './AddDepModal';
-import {EditDepModal} from './EditDepModal';*/
+import { AddActModal } from "./AddActModal";
+import { EditActModal } from "./EditActModal";
 
 export class Actors extends Component {
   constructor(props) {
     super(props);
-    this.state = { acto: [] };
+    this.state = { acto: [], addModalShow: false, editModalShow: false };
   }
 
   refreshList() {
@@ -27,19 +27,32 @@ export class Actors extends Component {
     this.refreshList();
   }
 
+  deleteAct(id) {
+    if (window.confirm("Are you sure?")) {
+      fetch(process.env.REACT_APP_API + "Actors/" + id, {
+        method: "DELETE",
+        header: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+    }
+  }
   render() {
-    const { acto } = this.state;
-
+    const { acto, actid, actname, actage,actnr,actaddress } = this.state;
+    let addModalClose = () => this.setState({ addModalShow: false });
+    let editModalClose = () => this.setState({ editModalShow: false });
     return (
       <div>
         <Table className="mt-4" striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Actor ID</th>
+              <th>Actor Id</th>
               <th>Actor Name</th>
               <th>Actor Age</th>
-              <th>Movies Played</th>
-              <th>Actors Adress</th>
+              <th>Nr. of Movies Played</th>
+              <th>Actor Adress</th>
+              <th>Options</th>
             </tr>
           </thead>
           <tbody>
@@ -50,11 +63,59 @@ export class Actors extends Component {
                 <td>{act.actorAge}</td>
                 <td>{act.moviesPlayed}</td>
                 <td>{act.actorAdress}</td>
-                <td>Edit/Delete</td>
+                <td className="m-auto">
+                  <ButtonToolbar>
+                    <Button
+                      className="m-2"
+                      variant="info"
+                      onClick={() =>
+                        this.setState({
+                          editModalShow: true,
+                          actid: act.actorId,
+                          actname: act.actorName,
+                          actage: act.actorAge,
+                          actnr: act.moviesPlayed,
+                          actaddress: act.actorAdress,
+                        })
+                      }
+                    >
+                      Edit
+                    </Button>
+
+                    <Button
+                      className="m-2 "
+                      variant="danger"
+                      onClick={() => this.deleteAct(act.actorId)}
+                    >
+                      Delete
+                    </Button>
+
+                    <EditActModal
+                      show={this.state.editModalShow}
+                      onHide={editModalClose}
+                      actid={actid}
+                      actname={actname}
+                      actage={actage}
+                      actnr={actnr}
+                      actaddress={actaddress}
+                    />
+                  </ButtonToolbar>
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
+
+        <ButtonToolbar>
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ addModalShow: true })}
+          >
+            Add Actor
+          </Button>
+
+          <AddActModal show={this.state.addModalShow} onHide={addModalClose} />
+        </ButtonToolbar>
       </div>
     );
   }

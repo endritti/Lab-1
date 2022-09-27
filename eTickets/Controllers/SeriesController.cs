@@ -57,7 +57,8 @@ namespace eTickets.Controllers
                             '" + sr.genre + @"',
                             '" + sr.mainActor + @"',
                             '" + sr.producer + @"',
-                            '" + sr.status + @"')
+                            '" + sr.status + @"',
+                            '" + sr.photoFileName + @"')
 
                             ";
             DataTable table = new DataTable();
@@ -87,7 +88,8 @@ namespace eTickets.Controllers
                             genre = '" + sr.genre + @"',
                             mainActor = '" + sr.mainActor + @"',
                             producer = '" + sr.producer + @"',
-                            status = '" + sr.status + @"'
+                            status = '" + sr.status + @"',
+                            photoFileName = '" + sr.photoFileName + @"'
 
                             where serieId = " + sr.serieId + @"
                             ";

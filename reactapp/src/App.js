@@ -2,12 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import { Movies } from "./admin/Movies";
+//import { userMovies } from "./userMovies";
 import { Genre } from "./admin/Genre";
 import { Series } from "./admin/Series";
 import { Actors } from "./admin/Actors";
 import { Producer } from "./admin/Producer";
 import { Users } from "./admin/Users";
 import {Cinema} from"./admin/Cinema";
+//import { userNavigation } from "./userNavigation";
 import { Navigation } from "./Navigation";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -15,7 +17,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-        <Navigation />
+         <Navigation />
     <div className="container-fluid">
 
         <Switch>
@@ -27,7 +29,7 @@ function App() {
           <Route path="/admin/cinema" component={Cinema} />
           <Route path="/admin/useri" component={Users} />
         </Switch>
-      </div>
+      </div> 
     </BrowserRouter>
   );
 }

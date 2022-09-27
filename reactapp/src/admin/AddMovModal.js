@@ -10,7 +10,7 @@ export class AddMovModal extends Component{
     }
 
     
-    photofilename = "anonymous.png";
+    photofilename = "anonymous.jpg";
     imagesrc = process.env.REACT_APP_PHOTOPATH+this.photofilename;
 
  
@@ -85,7 +85,6 @@ export class AddMovModal extends Component{
         .then(res=>res.json())
         .then((result)=>{
             this.imagesrc=process.env.REACT_APP_PHOTOPATH+result;
-            alert(this.photofilename);
         },
         (error)=>{
             alert('Failed');

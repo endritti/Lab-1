@@ -49,13 +49,14 @@ namespace eTickets.Controllers
         public JsonResult Post(Movies mv)
         {
             string query = @"insert into dbo.movies values
-                            ('" + mv.name + @"',
+                            (
+                            '" + mv.name + @"',
                             '" + mv.description + @"',
                             '" + mv.cinema + @"',
                             '" + mv.genre + @"',
                             '" + mv.mainActor + @"',
                             '" + mv.producer + @"',
-                            '" + mv.status + @"'),
+                            '" + mv.status + @"',
                             '" + mv.photoFileName + @"')
 
                             ";
@@ -87,7 +88,8 @@ namespace eTickets.Controllers
                             genre = '" + mv.genre + @"',
                             mainActor = '" + mv.mainActor + @"',
                             producer = '" + mv.producer + @"',
-                            status = '" + mv.status + @"'
+                            status = '" + mv.status + @"',
+                            photoFileName = '" + mv.photoFileName + @"'
 
                             where moviesId = " + mv.moviesId + @"
                             ";

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Modal,Button, Row, Col, Form,Image} from 'react-bootstrap';
 
-export class EditMovModal extends Component{
+export class EditSerModal extends Component{
     constructor(props){
         super(props);
         this.state={genr:[],cine:[],acto:[],prod:[]};
@@ -40,14 +40,14 @@ export class EditMovModal extends Component{
 
     handleSubmit(event){
         event.preventDefault();
-        fetch(process.env.REACT_APP_API+'Movies',{
+        fetch(process.env.REACT_APP_API+'Series',{
             method:'PUT',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({  
-                moviesId:event.target.moviesId.value,             
+                serieId:event.target.serieId.value,             
                 name:event.target.name.value,
                 description:event.target.description.value,
                 cinema:event.target.cinema.value,
@@ -72,6 +72,7 @@ export class EditMovModal extends Component{
     handleFileSelected(event){
         event.preventDefault();
         this.photofilename=event.target.files[0].name;
+        alert(this.photofilename);
         const formData = new FormData();
         formData.append(
             "myFile",
@@ -79,7 +80,7 @@ export class EditMovModal extends Component{
             event.target.files[0].name
         );
 
-        fetch(process.env.REACT_APP_API+'Movies/SaveFile',{
+        fetch(process.env.REACT_APP_API+'Series/SaveFile',{
             method:'POST',
             body:formData
         })
@@ -99,7 +100,7 @@ export class EditMovModal extends Component{
                 <Modal {...this.props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
                     <Modal.Header clooseButton>
                         <Modal.Title id="contained-modal-title-vcenter">
-                            Edit Movie
+                            Edit Serie
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -107,53 +108,53 @@ export class EditMovModal extends Component{
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
                                 <Form.Group controlId="moviesId">
-                                    <Form.Label>Movie ID</Form.Label>
-                                    <Form.Control defaultValue={this.props.movid} type="text" name="moviesId" required />
+                                    <Form.Label>Serie ID</Form.Label>
+                                    <Form.Control defaultValue={this.props.serid} type="text" name="serieId" required />
                                 </Form.Group>
                                 <Form.Group controlId="name">
-                                    <Form.Label>Movie Name</Form.Label>
-                                    <Form.Control defaultValue={this.props.movname} type="text" name="name" required />
+                                    <Form.Label>Serie Name</Form.Label>
+                                    <Form.Control defaultValue={this.props.sername} type="text" name="name" required />
                                 </Form.Group>
                                 <Form.Group controlId="description">
-                                    <Form.Label>Movie Description</Form.Label>
-                                    <Form.Control type="text" name="description" required  defaultValue={this.props.movdesc}/>
+                                    <Form.Label>Serie Description</Form.Label>
+                                    <Form.Control type="text" name="description" required  defaultValue={this.props.serdesc}/>
                                 </Form.Group>
                                 <Form.Group controlId="cinema">
                                     <Form.Label>Cinema</Form.Label>
-                                    <Form.Control as="select" defaultValue={this.props.movcinema} >
+                                    <Form.Control as="select" defaultValue={this.props.sercinema} >
                                     {this.state.cine.map(cin=>
                                     <option key={cin.cinemaId}>{cin.cinemaName}</option>)}
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group controlId="genre">
                                     <Form.Label>Genre</Form.Label>
-                                    <Form.Control as="select" defaultValue={this.props.movgenre}>
+                                    <Form.Control as="select" defaultValue={this.props.sergenre}>
                                     {this.state.genr.map(gen=>
                                     <option key={gen.genreId}>{gen.genreName}</option>)}
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group controlId="mainActor">
                                     <Form.Label>Main Actor</Form.Label>
-                                    <Form.Control as="select" defaultValue={this.props.movactor}>
+                                    <Form.Control as="select" defaultValue={this.props.seractor}>
                                     {this.state.acto.map(act=>
                                     <option key={act.actorId}>{act.actorName}</option>)}
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group controlId="producer">
                                     <Form.Label>Producer</Form.Label>
-                                    <Form.Control as="select" defaultValue={this.props.movproducer}>
+                                    <Form.Control as="select" defaultValue={this.props.serproducer}>
                                     {this.state.prod.map(pro=>
                                     <option key={pro.producerId}>{pro.producerName}</option>)}
                                     </Form.Control>
                                 </Form.Group>
                                 <Form.Group controlId="status" >
-                                    <Form.Label>Movie Status</Form.Label>
-                                    <Form.Control type="text" name="status" required defaultValue={this.props.movstatus} />
+                                    <Form.Label>Serie Status</Form.Label>
+                                    <Form.Control type="text" name="status" required defaultValue={this.props.serstatus} />
                                 </Form.Group>
                                 <Form.Group>
                                     <br/>
                                     <Button variant="primary" type="submit">
-                                        Edit Movie
+                                        Edit Serie
                                     </Button>
                                 </Form.Group>
                                 </Form>

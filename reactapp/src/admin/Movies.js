@@ -71,7 +71,7 @@ export class Movies extends Component{
                                 <td>
                                     <ButtonToolbar>
                                         <Button className="mr-2" variant="info" onClick={()=>this.setState({editModalShow:true,
-                                            movid:mov.movieId,movname:mov.name,movdesc:mov.description,movcinema:mov.cinema,movgenre:mov.genre,movactor:mov.mainActor,movproducer:mov.producer,
+                                            movid:mov.moviesId,movname:mov.name,movdesc:mov.description,movcinema:mov.cinema,movgenre:mov.genre,movactor:mov.mainActor,movproducer:mov.producer,
                                             movstatus:mov.status,photofilename:mov.photoFileName})}>
                                              Edit
                                         </Button>
