@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 
-export class EditGenModal extends Component {
+export class EditProdModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -9,16 +9,18 @@ export class EditGenModal extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(process.env.REACT_APP_API + "Genre", {
+    fetch(process.env.REACT_APP_API + "Producer", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        genreId: event.target.genreId.value,
-        genreName: event.target.genreName.value,
-        genreDescription: event.target.genreDescription.value,
+        producerId: event.target.producerId.value,
+        producerName: event.target.producerName.value,
+        producerAge: event.target.producerAge.value,
+        moviesMade: event.target.moviesMade.value,
+        producerAdress: event.target.producerAdress.value,
       }),
     })
       .then((res) => res.json())
@@ -42,50 +44,72 @@ export class EditGenModal extends Component {
         >
           <Modal.Header clooseButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Edit Genre
+              Edit Producer
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="genreId">
-                    <Form.Label>genreId</Form.Label>
+                  <Form.Group controlId="producerId">
+                    <Form.Label>producerId</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreId"
+                      name="producerId"
                       required
                       disabled
-                      defaultValue={this.props.genid}
+                      defaultValue={this.props.prodid}
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="genreName">
+                  <Form.Group controlId="producerName">
                     <Form.Label>genreName</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreName"
+                      name="producerName"
                       required
-                      defaultValue={this.props.genname}
+                      defaultValue={this.props.prodname}
                       placeholder="Emri"
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="genreDescription">
-                    <Form.Label>genreDescription</Form.Label>
+                  <Form.Group controlId="producerAge">
+                    <Form.Label>producerAge</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreDescription"
+                      name="producerAge"
                       required
-                      defaultValue={this.props.gendesc}
-                      placeholder="Emri"
+                      defaultValue={this.props.prodage}
+                      placeholder="Mosha"
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="moviesMade">
+                    <Form.Label>moviesMade</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="moviesMade"
+                      required
+                      defaultValue={this.props.movmade}
+                      placeholder="filmat"
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="producerAdress">
+                    <Form.Label>producerAdress</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="producerAdress"
+                      required
+                      defaultValue={this.props.prodadd}
+                      placeholder="Adresa"
                     />
                   </Form.Group>
 
                   <Form.Group>
                     <br />
                     <Button variant="primary" type="submit">
-                      Edit Genre
+                      Edit Producer
                     </Button>
                   </Form.Group>
                 </Form>

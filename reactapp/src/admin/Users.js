@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-/*import {AddDepModal} from './AddDepModal';
-import {EditDepModal} from './EditDepModal';*/
+import { AddUsrModal } from "./AddUsrModal";
+import { EditUsrModal } from "./EditUsrModal";
 
 export class Users extends Component {
   constructor(props) {
@@ -27,8 +27,22 @@ export class Users extends Component {
     this.refreshList();
   }
 
+  deleteUsr(usrid) {
+    if (window.confirm("Are you sure?")) {
+      fetch(process.env.REACT_APP_API + "Users/" + usrid, {
+        method: "DELETE",
+        header: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+    }
+  }
+
   render() {
-    const { user } = this.state;
+    const { user, usrid, usrname, usrem, usrpw, usrpn } = this.state;
+    let addModalClose = () => this.setState({ addModalShow: false });
+    let editModalClose = () => this.setState({ editModalShow: false });
 
     return (
       <div>
@@ -44,18 +58,65 @@ export class Users extends Component {
             </tr>
           </thead>
           <tbody>
-            {user.map((use) => (
-              <tr key={use.userId}>
-                <td>{use.userId}</td>
-                <td>{use.userName}</td>
-                <td>{use.userEmail}</td>
-                <td>{use.userPassword}</td>
-                <td>{use.userPhoneNumber}</td>
-                <td>Edit/Delete</td>
+            {user.map((usr) => (
+              <tr key={usr.userId}>
+                <td>{usr.userId}</td>
+                <td>{usr.userName}</td>
+                <td>{usr.userEmail}</td>
+                <td>{usr.userPassword}</td>
+                <td>{usr.userPhoneNumber}</td>
+                <td className="m-auto">
+                  <ButtonToolbar>
+                    <Button
+                      className="m-2"
+                      variant="info"
+                      onClick={() =>
+                        this.setState({
+                          editModalShow: true,
+                          usrid: usr.userId,
+                          usrname: usr.userName,
+                          usrem: usr.userEmail,
+                          usrpw: usr.userPassword,
+                          usrpn: usr.userPhoneNumber,
+                        })
+                      }
+                    >
+                      Edit
+                    </Button>
+
+                    <Button
+                      className="m-2 "
+                      variant="danger"
+                      onClick={() => this.deleteUsr(usr.userId)}
+                    >
+                      Delete
+                    </Button>
+
+                    <EditUsrModal
+                      show={this.state.editModalShow}
+                      onHide={editModalClose}
+                      usrid={usrid}
+                      usrname={usrname}
+                      usrem={usrem}
+                      usrpw={usrpw}
+                      usrpn={usrpn}
+                    />
+                  </ButtonToolbar>
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
+        <ButtonToolbar>
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ addModalShow: true })}
+          >
+            Add Users
+          </Button>
+
+          <AddUsrModal show={this.state.addModalShow} onHide={addModalClose} />
+        </ButtonToolbar>
       </div>
     );
   }

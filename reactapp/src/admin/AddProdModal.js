@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 
-export class EditGenModal extends Component {
+export class AddProdModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -9,16 +9,17 @@ export class EditGenModal extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(process.env.REACT_APP_API + "Genre", {
-      method: "PUT",
+    fetch(process.env.REACT_APP_API + "Producer", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        genreId: event.target.genreId.value,
-        genreName: event.target.genreName.value,
-        genreDescription: event.target.genreDescription.value,
+        producerName: event.target.producerName.value,
+        producerAge: event.target.producerAge.value,
+        moviesMade: event.target.moviesMade.value,
+        producerAdress: event.target.producerAdress.value,
       }),
     })
       .then((res) => res.json())
@@ -42,57 +43,59 @@ export class EditGenModal extends Component {
         >
           <Modal.Header clooseButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Edit Genre
+              Add Producer
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="genreId">
-                    <Form.Label>genreId</Form.Label>
+                  <Form.Group controlId="producerName">
+                    <Form.Label>Producer Name</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreId"
+                      name="ProducerName"
                       required
-                      disabled
-                      defaultValue={this.props.genid}
+                      placeholder="Producer Name"
                     />
                   </Form.Group>
-
-                  <Form.Group controlId="genreName">
-                    <Form.Label>genreName</Form.Label>
+                  <Form.Group controlId="producerAge">
+                    <Form.Label>Producer Age</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreName"
+                      name="ProducerAge"
                       required
-                      defaultValue={this.props.genname}
-                      placeholder="Emri"
+                      placeholder="Producer Age"
                     />
                   </Form.Group>
-
-                  <Form.Group controlId="genreDescription">
-                    <Form.Label>genreDescription</Form.Label>
+                  <Form.Group controlId="moviesMade">
+                    <Form.Label>Movies Made</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreDescription"
+                      name="MoviesMade"
                       required
-                      defaultValue={this.props.gendesc}
-                      placeholder="Emri"
+                      placeholder="Movies Made"
                     />
                   </Form.Group>
-
+                  <Form.Group controlId="producerAdress">
+                    <Form.Label>Producer Adress</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="ProducerAdress"
+                      required
+                      placeholder="Producer Adress"
+                    />
+                  </Form.Group>
                   <Form.Group>
                     <br />
                     <Button variant="primary" type="submit">
-                      Edit Genre
+                      Add Producer
                     </Button>
                   </Form.Group>
                 </Form>
               </Col>
             </Row>
           </Modal.Body>
-
           <Modal.Footer>
             <Button variant="danger" onClick={this.props.onHide}>
               Close

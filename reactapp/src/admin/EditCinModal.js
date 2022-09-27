@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 
-export class EditGenModal extends Component {
+export class EditCinModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -9,16 +9,16 @@ export class EditGenModal extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(process.env.REACT_APP_API + "Genre", {
+    fetch(process.env.REACT_APP_API + "Cinema", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        genreId: event.target.genreId.value,
-        genreName: event.target.genreName.value,
-        genreDescription: event.target.genreDescription.value,
+        cinemaId: event.target.cinemaId.value,
+        cinemaName: event.target.cinemaName.value,
+        cinemaCapacity: event.target.cinemaCapacity.value,
       }),
     })
       .then((res) => res.json())
@@ -42,50 +42,50 @@ export class EditGenModal extends Component {
         >
           <Modal.Header clooseButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Edit Genre
+              Edit Cinema
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="genreId">
-                    <Form.Label>genreId</Form.Label>
+                  <Form.Group controlId="cinemaId">
+                    <Form.Label>cinemaId</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreId"
+                      name="cinemaId"
                       required
                       disabled
-                      defaultValue={this.props.genid}
+                      defaultValue={this.props.cinid}
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="genreName">
-                    <Form.Label>genreName</Form.Label>
+                  <Form.Group controlId="cinemaName">
+                    <Form.Label>cinemaName</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreName"
+                      name="cinemaName"
                       required
-                      defaultValue={this.props.genname}
+                      defaultValue={this.props.cinname}
                       placeholder="Emri"
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="genreDescription">
-                    <Form.Label>genreDescription</Form.Label>
+                  <Form.Group controlId="cinemaCapacity">
+                    <Form.Label>cinemaCapacity</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreDescription"
+                      name="cinemaCapacity"
                       required
-                      defaultValue={this.props.gendesc}
-                      placeholder="Emri"
+                      defaultValue={this.props.cincap}
+                      placeholder="Kapaciteti"
                     />
                   </Form.Group>
 
                   <Form.Group>
                     <br />
                     <Button variant="primary" type="submit">
-                      Edit Genre
+                      Edit Cinema
                     </Button>
                   </Form.Group>
                 </Form>

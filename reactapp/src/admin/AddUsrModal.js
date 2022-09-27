@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 
-export class EditGenModal extends Component {
+export class AddUsrModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -9,16 +9,17 @@ export class EditGenModal extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(process.env.REACT_APP_API + "Genre", {
-      method: "PUT",
+    fetch(process.env.REACT_APP_API + "Users", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        genreId: event.target.genreId.value,
-        genreName: event.target.genreName.value,
-        genreDescription: event.target.genreDescription.value,
+        userName: event.target.userName.value,
+        userEmail: event.target.userEmail.value,
+        userPassword: event.target.userPassword.value,
+        userPhoneNumber: event.target.userPhoneNumber.value,
       }),
     })
       .then((res) => res.json())
@@ -42,57 +43,59 @@ export class EditGenModal extends Component {
         >
           <Modal.Header clooseButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Edit Genre
+              Add Users
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="genreId">
-                    <Form.Label>genreId</Form.Label>
+                  <Form.Group controlId="userName">
+                    <Form.Label>User Name</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreId"
+                      name="UserName"
                       required
-                      disabled
-                      defaultValue={this.props.genid}
+                      placeholder="User Name"
                     />
                   </Form.Group>
-
-                  <Form.Group controlId="genreName">
-                    <Form.Label>genreName</Form.Label>
+                  <Form.Group controlId="userEmail">
+                    <Form.Label>User Email</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreName"
+                      name="UserEmail"
                       required
-                      defaultValue={this.props.genname}
-                      placeholder="Emri"
+                      placeholder="User Email"
                     />
                   </Form.Group>
-
-                  <Form.Group controlId="genreDescription">
-                    <Form.Label>genreDescription</Form.Label>
+                  <Form.Group controlId="userPassword">
+                    <Form.Label>User Password</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreDescription"
+                      name="UserPassword"
                       required
-                      defaultValue={this.props.gendesc}
-                      placeholder="Emri"
+                      placeholder="User Password"
                     />
                   </Form.Group>
-
+                  <Form.Group controlId="userPhoneNumber">
+                    <Form.Label>User PhoneNumber</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="UserPhoneNumber"
+                      required
+                      placeholder="User PhoneNumber"
+                    />
+                  </Form.Group>
                   <Form.Group>
                     <br />
                     <Button variant="primary" type="submit">
-                      Edit Genre
+                      Add Users
                     </Button>
                   </Form.Group>
                 </Form>
               </Col>
             </Row>
           </Modal.Body>
-
           <Modal.Footer>
             <Button variant="danger" onClick={this.props.onHide}>
               Close

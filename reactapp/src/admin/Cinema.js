@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-/*import {AddDepModal} from './AddDepModal';
-import {EditDepModal} from './EditDepModal';*/
+import { AddCinModal } from "./AddCinModal";
+import { EditCinModal } from "./EditCinModal";
 
 export class Cinema extends Component {
   constructor(props) {
     super(props);
-    this.state = { cinem: [] };
+    this.state = { cinem: [], addModalShow: false, editModalShow: false };
   }
 
   refreshList() {
@@ -27,8 +27,22 @@ export class Cinema extends Component {
     this.refreshList();
   }
 
+  deleteCin(cinid) {
+    if (window.confirm("Are you sure?")) {
+      fetch(process.env.REACT_APP_API + "Cinema/" + cinid, {
+        method: "DELETE",
+        header: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+    }
+  }
+
   render() {
-    const { cinem } = this.state;
+    const { cinem, cinid, cinname, cincap } = this.state;
+    let addModalClose = () => this.setState({ addModalShow: false });
+    let editModalClose = () => this.setState({ editModalShow: false });
 
     return (
       <div>
@@ -47,11 +61,54 @@ export class Cinema extends Component {
                 <td>{cin.cinemaId}</td>
                 <td>{cin.cinemaName}</td>
                 <td>{cin.cinemaCapacity}</td>
-                <td>Edit/Delete</td>
+                <td className="m-auto">
+                  <ButtonToolbar>
+                    <Button
+                      className="m-2"
+                      variant="info"
+                      onClick={() =>
+                        this.setState({
+                          editModalShow: true,
+                          cinid: cin.cinemaId,
+                          cinname: cin.cinemaName,
+                          cincap: cin.cinemaCapacity,
+                        })
+                      }
+                    >
+                      Edit
+                    </Button>
+
+                    <Button
+                      className="m-2 "
+                      variant="danger"
+                      onClick={() => this.deleteCin(cin.cinemaId)}
+                    >
+                      Delete
+                    </Button>
+
+                    <EditCinModal
+                      show={this.state.editModalShow}
+                      onHide={editModalClose}
+                      cinid={cinid}
+                      cinname={cinname}
+                      cincap={cincap}
+                    />
+                  </ButtonToolbar>
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
+        <ButtonToolbar>
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ addModalShow: true })}
+          >
+            Add Cinema
+          </Button>
+
+          <AddCinModal show={this.state.addModalShow} onHide={addModalClose} />
+        </ButtonToolbar>
       </div>
     );
   }

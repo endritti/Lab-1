@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
-/*import {AddDepModal} from './AddDepModal';
-import {EditDepModal} from './EditDepModal';*/
+import { AddProdModal } from "./AddProdModal";
+import { EditProdModal } from "./EditProdModal";
 
 export class Producer extends Component {
   constructor(props) {
@@ -27,8 +27,22 @@ export class Producer extends Component {
     this.refreshList();
   }
 
+  deleteProd(prodid) {
+    if (window.confirm("Are you sure?")) {
+      fetch(process.env.REACT_APP_API + "Producer/" + prodid, {
+        method: "DELETE",
+        header: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+    }
+  }
+
   render() {
-    const { prod } = this.state;
+    const { prod, prodid, prodname, prodage, movmade, prodadd } = this.state;
+    let addModalClose = () => this.setState({ addModalShow: false });
+    let editModalClose = () => this.setState({ editModalShow: false });
 
     return (
       <div>
@@ -44,18 +58,65 @@ export class Producer extends Component {
             </tr>
           </thead>
           <tbody>
-            {prod.map((pro) => (
-              <tr key={pro.producerId}>
-                <td>{pro.producerId}</td>
-                <td>{pro.producerName}</td>
-                <td>{pro.producerAge}</td>
-                <td>{pro.moviesMade}</td>
-                <td>{pro.producerAdress}</td>
-                <td>Edit/Delete</td>
+            {prod.map((prod) => (
+              <tr key={prod.producerId}>
+                <td>{prod.producerId}</td>
+                <td>{prod.producerName}</td>
+                <td>{prod.producerAge}</td>
+                <td>{prod.moviesMade}</td>
+                <td>{prod.producerAdress}</td>
+                <td className="m-auto">
+                  <ButtonToolbar>
+                    <Button
+                      className="m-2"
+                      variant="info"
+                      onClick={() =>
+                        this.setState({
+                          editModalShow: true,
+                          prodid: prod.producerId,
+                          prodname: prod.producerName,
+                          prodage: prod.producerAge,
+                          movmade: prod.moviesMade,
+                          prodadd: prod.producerAdress,
+                        })
+                      }
+                    >
+                      Edit
+                    </Button>
+
+                    <Button
+                      className="m-2 "
+                      variant="danger"
+                      onClick={() => this.deleteProd(prod.producerId)}
+                    >
+                      Delete
+                    </Button>
+
+                    <EditProdModal
+                      show={this.state.editModalShow}
+                      onHide={editModalClose}
+                      prodid={prodid}
+                      prodname={prodname}
+                      prodage={prodage}
+                      movmade={movmade}
+                      prodadd={prodadd}
+                    />
+                  </ButtonToolbar>
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
+        <ButtonToolbar>
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ addModalShow: true })}
+          >
+            Add Producer
+          </Button>
+
+          <AddProdModal show={this.state.addModalShow} onHide={addModalClose} />
+        </ButtonToolbar>
       </div>
     );
   }

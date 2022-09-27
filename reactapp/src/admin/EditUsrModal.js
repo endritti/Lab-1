@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 
-export class EditGenModal extends Component {
+export class EditUsrModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -9,16 +9,18 @@ export class EditGenModal extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(process.env.REACT_APP_API + "Genre", {
+    fetch(process.env.REACT_APP_API + "Users", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        genreId: event.target.genreId.value,
-        genreName: event.target.genreName.value,
-        genreDescription: event.target.genreDescription.value,
+        userId: event.target.userId.value,
+        userName: event.target.userName.value,
+        userEmail: event.target.userEmail.value,
+        userPassword: event.target.userPassword.value,
+        userPhoneNumber: event.target.userPhoneNumber.value,
       }),
     })
       .then((res) => res.json())
@@ -42,50 +44,71 @@ export class EditGenModal extends Component {
         >
           <Modal.Header clooseButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Edit Genre
+              Edit Users
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Row>
               <Col sm={6}>
                 <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="genreId">
+                  <Form.Group controlId="userId">
                     <Form.Label>genreId</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreId"
+                      name="userId"
                       required
                       disabled
-                      defaultValue={this.props.genid}
+                      defaultValue={this.props.usrid}
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="genreName">
+                  <Form.Group controlId="userName">
                     <Form.Label>genreName</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreName"
+                      name="userName"
                       required
-                      defaultValue={this.props.genname}
+                      defaultValue={this.props.usrname}
                       placeholder="Emri"
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="genreDescription">
-                    <Form.Label>genreDescription</Form.Label>
+                  <Form.Group controlId="userEmail">
+                    <Form.Label>userEmail</Form.Label>
                     <Form.Control
                       type="text"
-                      name="genreDescription"
+                      name="userEmail"
                       required
-                      defaultValue={this.props.gendesc}
-                      placeholder="Emri"
+                      defaultValue={this.props.usrem}
+                      placeholder="Adresa"
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="userPassword">
+                    <Form.Label>userPassword</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="userPassword"
+                      required
+                      defaultValue={this.props.usrpw}
+                      placeholder="Fjalekalimi"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="userPhoneNumber">
+                    <Form.Label>userPhoneNumber</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="userPhoneNumber"
+                      required
+                      defaultValue={this.props.usrpn}
+                      placeholder="Celulari"
                     />
                   </Form.Group>
 
                   <Form.Group>
                     <br />
                     <Button variant="primary" type="submit">
-                      Edit Genre
+                      Edit Users
                     </Button>
                   </Form.Group>
                 </Form>
