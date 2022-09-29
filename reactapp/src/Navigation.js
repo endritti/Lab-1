@@ -10,14 +10,10 @@ export class Navigation extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/admin/movies">Movies</Nav.Link>
-              <Nav.Link href="/admin/series">Series</Nav.Link>
-              <Nav.Link href="/admin/genre">Genre</Nav.Link>
-              <Nav.Link href="/admin/actors">Actors</Nav.Link>
-              <Nav.Link href="/admin/producer">Producer</Nav.Link>
-              <Nav.Link href="/admin/cinema">Cinema</Nav.Link>
+              <Nav.Link href="/user/uMovies">Movies</Nav.Link>
+              <Nav.Link href="/user/uSeries">Series</Nav.Link>
             </Nav>
-            <Nav.Link href="/admin/useri">Users</Nav.Link>
+            <Nav.Link href="/admin/login">Admin</Nav.Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -43,6 +43,20 @@ export class Series extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return(
             <div >
+                <div className="navi">
+                    <center>
+                    <ul>
+                    <li><a href="/admin/Movies" >Movies</a></li>
+                    <li><a href="/admin/Series"  id="active">Series</a></li>
+                    <li><a href="/admin/Genre">Genres</a></li>
+                    <li><a href="/admin/Actors">Actors</a></li>
+                    <li><a href="/admin/Producer">Producer</a></li>
+                    <li><a href="/admin/Cinema" >Cinema</a></li>
+                    <li><a href="/admin/Useri">Users</a></li>
+
+                    </ul>
+                    </center>
+                </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                     <tr class="align-text-top">

@@ -9,6 +9,10 @@ import { Actors } from "./admin/Actors";
 import { Producer } from "./admin/Producer";
 import { Users } from "./admin/Users";
 import {Cinema} from"./admin/Cinema";
+import {Login} from"./admin/Login";
+import {uLogin} from"./user/uLogin";
+import { uMovies } from "./user/uMovies";
+import {uSeries} from"./user/uSeries";
 //import { userNavigation } from "./userNavigation";
 import { Navigation } from "./Navigation";
 
@@ -21,6 +25,7 @@ function App() {
     <div className="container-fluid">
 
         <Switch>
+        <Route path="/" component={uLogin} exact />
           <Route path="/admin/movies" component={Movies} exact />
           <Route path="/admin/series" component={Series} />
           <Route path="/admin/genre" component={Genre} />
@@ -28,6 +33,9 @@ function App() {
           <Route path="/admin/producer" component={Producer} />
           <Route path="/admin/cinema" component={Cinema} />
           <Route path="/admin/useri" component={Users} />
+          <Route path="/user/uMovies" component={uMovies} />
+          <Route path="/user/uSeries" component={uSeries} />
+          <Route path="/admin/login" component={Login} />
         </Switch>
       </div> 
     </BrowserRouter>

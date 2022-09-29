@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
-
+import "./nav.css";
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddMovModal} from './AddMovModal';
 import {EditMovModal} from './EditMovModal';
-
+<link rel="stylesheet" href="nav.css"></link>
 export class Movies extends Component{
 
     constructor(props){
@@ -42,7 +42,22 @@ export class Movies extends Component{
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return(
+            
             <div >
+                <div className="navi">
+                    <center>
+                    <ul>
+                    <li><a href="/admin/Movies" id="active">Movies</a></li>
+                    <li><a href="/admin/Series">Series</a></li>
+                    <li><a href="/admin/Genre">Genres</a></li>
+                    <li><a href="/admin/Actors">Actors</a></li>
+                    <li><a href="/admin/Producer">Producer</a></li>
+                    <li><a href="/admin/Cinema">Cinema</a></li>
+                    <li><a href="/admin/Useri">Users</a></li>
+
+                    </ul>
+                    </center>
+                </div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                     <tr class="align-text-top">

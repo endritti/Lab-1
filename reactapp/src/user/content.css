@@ -1,0 +1,33 @@
+#name{
+    background-color: #97c9b2;
+    height: 15%;
+    margin-top: -10%;
+    padding: 15px;
+    border-left: 3px solid black;
+}
+p{
+    display: block;
+    margin-left: 30%;
+    font-weight: 200em;
+    font-size: 17px;
+}
+p > span{
+    font-weight: bold;
+    font-size: 20px;
+}
+.txt{
+    margin-top: -33%;
+   height: 450px;
+    
+}
+#tr{
+    border: 15px solid rgb(170, 192, 221);
+}
+#btn{
+    float: right;
+    margin-top: -3%;
+}
+img{
+    border: 2px solid black;
+    border-radius: 20px;
+}

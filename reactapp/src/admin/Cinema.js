@@ -46,6 +46,20 @@ export class Cinema extends Component {
 
     return (
       <div>
+        <div className="navi">
+                    <center>
+                    <ul>
+                    <li><a href="/admin/Movies" >Movies</a></li>
+                    <li><a href="/admin/Series">Series</a></li>
+                    <li><a href="/admin/Genre">Genres</a></li>
+                    <li><a href="/admin/Actors">Actors</a></li>
+                    <li><a href="/admin/Producer">Producer</a></li>
+                    <li><a href="/admin/Cinema"  id="active">Cinema</a></li>
+                    <li><a href="/admin/Useri">Users</a></li>
+
+                    </ul>
+                    </center>
+                </div>
         <Table className="mt-4" striped bordered hover size="sm">
           <thead>
             <tr>
