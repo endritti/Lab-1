@@ -12,6 +12,7 @@ export class Navigation extends Component {
             <Nav className="me-auto">
               <Nav.Link href="/user/uMovies">Movies</Nav.Link>
               <Nav.Link href="/user/uSeries">Series</Nav.Link>
+              <Nav.Link href="/user/uCart">Cart</Nav.Link>
             </Nav>
             <Nav.Link href="/admin/login">Admin</Nav.Link>
           </Navbar.Collapse>

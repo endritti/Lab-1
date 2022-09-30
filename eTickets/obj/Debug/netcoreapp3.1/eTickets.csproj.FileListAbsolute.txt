@@ -91,7 +91,6 @@ C:\Users\Ari's Laptop\Desktop\Projekti eTickets\Lab-1\eTickets\obj\Debug\netcore
 C:\Users\Ari's Laptop\Desktop\Projekti eTickets\Lab-1\eTickets\obj\Debug\netcoreapp3.1\staticwebassets\eTickets.StaticWebAssets.xml
 C:\Users\Ari's Laptop\Desktop\Projekti eTickets\Lab-1\eTickets\obj\Debug\netcoreapp3.1\scopedcss\bundle\eTickets.styles.css
 C:\Users\Ari's Laptop\Desktop\Projekti eTickets\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.RazorTargetAssemblyInfo.cache
-C:\Users\Ari's Laptop\Desktop\Projekti eTickets\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.csproj.CopyComplete
 C:\Users\Ari's Laptop\Desktop\Projekti eTickets\Lab-1\eTickets\obj\Debug\netcoreapp3.1\eTickets.genruntimeconfig.cache
 C:\Users\Pc\Desktop\Lab-1\eTickets\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Pc\Desktop\Lab-1\eTickets\bin\Debug\netcoreapp3.1\appsettings.json
