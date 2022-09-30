@@ -5,6 +5,7 @@ export class Login extends Component{
     render(){
         return(
             <div>
+                <center>
                 <form action="/admin/Movies" method="Get" id="form">
                 <center><h6>Admin Login:</h6></center>
                     <label for="email" id="label">Email:</label>
@@ -16,6 +17,7 @@ export class Login extends Component{
                     <button name="submit" id="submit" class="button" >Submit</button>
                     <button name="reset" id="reset" class="button">Reset</button>
                 </form>
+                </center>
             </div>
         )
     }

@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
 import { EditCartModal } from "./EditCartModal";
+import { FaCommentDollar } from "react-icons/fa";
 
 export class Cart extends Component {
   constructor(props) {
@@ -95,6 +96,9 @@ export class Cart extends Component {
             ))}
           </tbody>
         </Table>
+        <Button className="pull-right">
+          Payment Checkot  <FaCommentDollar/>
+        </Button>
       </div>
     );
   }
