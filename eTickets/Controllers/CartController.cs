@@ -25,7 +25,7 @@ namespace eTickets.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select cartId,productId,userId,quantity from dbo.cart";
+            string query = @"select cartId,productName,userId,quantity from dbo.cart";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
@@ -47,7 +47,7 @@ namespace eTickets.Controllers
         {
             string query = @"insert into dbo.cart values
                             (
-                            '" + ct.productId + @"',
+                            '" + ct.productName + @"',
                             '" + ct.userId + @"',
                             '" + ct.quantity + @"')
                             ";
@@ -73,7 +73,7 @@ namespace eTickets.Controllers
         {
             string query = @"update dbo.cart set 
                             
-                            productId = '" + ct.productId + @"',
+                            productName = '" + ct.productName + @"',
                             userId = '" + ct.userId + @"',
                             quantity = '" + ct.quantity + @"'                         
 

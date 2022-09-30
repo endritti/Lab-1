@@ -13,6 +13,8 @@ import {Login} from"./admin/Login";
 import {uLogin} from"./user/uLogin";
 import { uMovies } from "./user/uMovies";
 import {uSeries} from"./user/uSeries";
+import {Cart} from"./user/Cart";
+
 //import { userNavigation } from "./userNavigation";
 import { Navigation } from "./Navigation";
 
@@ -35,6 +37,7 @@ function App() {
           <Route path="/admin/useri" component={Users} />
           <Route path="/user/uMovies" component={uMovies} />
           <Route path="/user/uSeries" component={uSeries} />
+          <Route path="/user/cart" component={Cart} />
           <Route path="/admin/login" component={Login} />
         </Switch>
       </div> 

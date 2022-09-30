@@ -4,16 +4,16 @@ export class uLogin extends Component{
     render(){
         return(
             <div>
-                <form action="/user/uMovies" method="Get">
-                    <h6>User Login:</h6>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" required min="2" max="12" placeholder="Enter Your Email..."/>
+                <form action="/user/uMovies" method="GET" id="form">
+                    <center><h6>User Login:</h6></center>
+                    <label for="email" id="label">Email:</label>
+                    <input type="email" name="email" required min="2" max="12" placeholder="Enter Your Email..." id="input"/>
                     <br></br>
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" required min="2" max="5" placeholder="Enter Your Password"/>
+                    <label for="password" id="label">Password:</label>
+                    <input type="password" name="password" required min="2" max="5" placeholder="Enter Your Password" id="input"/>
                     <br></br><br></br>
-                <button name="submit" id="submit" >Submit</button>
-                    <button name="reset" id="reset">Reset</button>
+                    <button name="submit" id="submit" class="button" >Submit</button>
+                    <button name="reset" id="reset" class="button">Reset</button>
                 </form>
             </div>
         )

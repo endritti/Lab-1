@@ -1,10 +1,10 @@
 body{
-    background-color: rgb(170, 192, 221);
+    background-color:#97c6f8
 }
-form{
+#form{
     border: 2px solid black;
     border-radius: 20px;
-    background-color: #198754;
+    background-color: #88b6e7;
     width: fit-content;
     height: fit-content;
     padding: 50px;
@@ -12,22 +12,24 @@ form{
     margin-left:40%;
     
 }
-input,label{
+#input,#label{
     display: block;
-    font-size: 18px;
 }
-label{
-    font-weight: bold;
-    color: #97c9b2;
+#label{
+    font-size: 18px;
+    font-weight: 600;
 }
 
-input{
+#input{
+    font-size: 18px;
     font-weight: 100em;
     border-radius: 5px;
-    background-color: rgb(145, 190, 248);
+    background-color: #97c6f8;
+    outline: none;
+    border: 2px solid black;
 }
 
-button{
+.button{
     font-size: 15px;
     padding: 10px;
     margin: 0px 15px;
@@ -47,4 +49,12 @@ button{
 }
 #reset:hover{
     background-color:#9e2733 ;
+}
+h6{
+    background-image: linear-gradient(#97c6f8,#88b6e7); 
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: -20%;
+    padding-bottom: 9%;
+    border-radius: 10px;
 }

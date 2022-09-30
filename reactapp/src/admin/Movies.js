@@ -4,7 +4,7 @@ import "./nav.css";
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import {AddMovModal} from './AddMovModal';
 import {EditMovModal} from './EditMovModal';
-<link rel="stylesheet" href="nav.css"></link>
+
 export class Movies extends Component{
 
     constructor(props){
@@ -44,7 +44,7 @@ export class Movies extends Component{
         return(
             
             <div >
-                <div className="navi">
+                <div className="navi container">
                     <center>
                     <ul>
                     <li><a href="/admin/Movies" id="active">Movies</a></li>

@@ -1,33 +1,44 @@
-#name{
+.movieName{
     background-color: #97c9b2;
     height: 15%;
     margin-top: -10%;
     padding: 15px;
     border-left: 3px solid black;
 }
-p{
+.p{
     display: block;
     margin-left: 30%;
-    font-weight: 200em;
+    font-weight:400;
     font-size: 17px;
 }
-p > span{
+.p > span{
     font-weight: bold;
     font-size: 20px;
 }
 .txt{
     margin-top: -33%;
-   height: 450px;
+   height: 420px;
+   
     
 }
 #tr{
-    border: 15px solid rgb(170, 192, 221);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 1px solid black !important;  
 }
 #btn{
-    float: right;
+    display: inline;
+    margin-left: 90%;
     margin-top: -3%;
 }
-img{
+.img{
     border: 2px solid black;
-    border-radius: 20px;
+    border-top-right-radius:20px ;
+}
+#statusData{
+    display: inline;
+    padding: 3px 10px;
+    margin-left: 5px;
+    background-color: #75ba75;
+    border-radius: 5px;
 }

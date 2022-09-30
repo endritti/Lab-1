@@ -43,7 +43,7 @@ export class Series extends Component{
         let editModalClose=()=>this.setState({editModalShow:false});
         return(
             <div >
-                <div className="navi">
+                <div className="navi container">
                     <center>
                     <ul>
                     <li><a href="/admin/Movies" >Movies</a></li>

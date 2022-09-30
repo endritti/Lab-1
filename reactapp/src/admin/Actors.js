@@ -43,7 +43,7 @@ export class Actors extends Component {
     let addModalClose = () => this.setState({ addModalShow: false });
     let editModalClose = () => this.setState({ editModalShow: false });
     return (
-      <div>
+      <div className="container">
         <div className="navi">
                     <center>
                     <ul>

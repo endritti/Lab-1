@@ -43,7 +43,7 @@ export class Genre extends Component {
     let addModalClose = () => this.setState({ addModalShow: false });
     let editModalClose = () => this.setState({ editModalShow: false });
     return (
-      <div>
+      <div className="container">
         <div className="navi">
                     <center>
                     <ul>
@@ -58,7 +58,7 @@ export class Genre extends Component {
                     </ul>
                     </center>
                 </div>
-        <Table className="mt-4" striped bordered hover size="sm">
+        <Table className="mt-4 container" striped bordered hover size="sm">
           <thead>
             <tr>
               <th>Genre Id</th>

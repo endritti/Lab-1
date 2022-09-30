@@ -29,7 +29,7 @@ namespace eTickets.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select serieId,name,description,cinema,genre,mainActor,producer,status from dbo.series";
+            string query = @"select serieId,name,description,cinema,genre,mainActor,producer,status,photoFileName from dbo.series";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DBAppCon");
             SqlDataReader myReader;
